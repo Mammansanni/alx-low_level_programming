@@ -2,6 +2,10 @@
 #include <stdio.h>
 int main()
 {
-	puts("Programming is like building a multilingual puzzle\n");
-	return 0
+	//string initialisation
+char Mystr[] = "Programming is like building a multilingual puzzle\n";
+
+puts(Mystr); //writng the string to stdout
+
+return 0;
 }
