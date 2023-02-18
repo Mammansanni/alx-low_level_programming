@@ -1,10 +1,11 @@
 #include <stdio.h>
 
 /**
- * Prints the alphaphet.
+ * main - main function
  *
- * Return: Always 0 (success)
+ * Return: always 0
  */
+
 int main(void)
 {
 	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
