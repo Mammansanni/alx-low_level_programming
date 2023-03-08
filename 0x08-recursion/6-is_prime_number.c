@@ -1,29 +1,32 @@
 #include "main.h"
+#include <math.h>
 
 /**
- * is_prime_number - func that returns 1 if a num is a prime num, 0 otherwise
- * @n: number for input
- * Return: 0
+ * is_prime - Checks if a number if prime or not
+ * @n: This is the number
+ * @y: This is a buffer
+ *
+ * Return: An int of 1 if true and O otherwise
  */
-int is_prime_number(int n)
+int is_prime(int n, int y)
 {
-	return (helper_prime(n, 2, n / 2));
+	if (n == 1)
+		return (0);
+	else if (n % y == 0 && y != n && y != 1)
+		return (0);
+	else if (n % y == 0 && y == n)
+		return (1);
+	else
+		return (is_prime(n, y + 1));
 }
 
 /**
- *  helper_prime - blank
- * @n: checkl
- * @i: for the increment
- * @limit: stop
- * Return: 0
+ * is_prime_number - Returns whether prime or not to main
+ * @n: The number
+ *
+ * Return: An int 1 0r 0 to show prime or not resp.
  */
-
-int helper_prime(int n, int i, int limit)
+int is_prime_number(int n)
 {
-	if ((n % i == 0 && i <= limit) || n < 0 || n == 1)
-		return (0);
-	else if (n % i != 0 && i <= limit)
-		return (helper_prime(n, i + 1, limit));
-	else
-		return (1);
+	return (is_prime(n, 1));
 }
