@@ -2,37 +2,37 @@
 #include <stdlib.h>
 
 /**
- * str_concat - function that concatenates two strings
- * @s1: paramater for string 1
- * @s2: parameter for string 2
- * Return: Always 0.
- */
+ * str_concat - concatenates two strings
+ * @s1: string to be concatenated on
+ * @s2: string to concatenate to s1
+ * Return: NULL if concatenate fails else a pointer to the
+ * newly allocated space in the memory
+*/
+
 char *str_concat(char *s1, char *s2)
 {
-	int a, b, c;
-	char *my_array;
+	char *cs;
+	int xc, cx = 0, lc = 0;
 
-	c = 0;
-	my_array = malloc(sizeof(*s1 + *s2));
+	if (s1 == NULL)
+		s1 = "";
 
-	if (my_array == NULL)
+	if (s2 == NULL)
+		s2 = "";
+
+	for (xc = 0; s1[xc] || s2[xc]; xc++)
+		lc++;
+
+	cs = malloc(sizeof(char) * lc);
+
+	if (cs == NULL)
 		return (NULL);
 
-	a = 0;
-	while (s1[a] != '\0')
-	{
-		my_array[c] = s1[a];
-		a++;
-		c++;
-	}
-	b = 0;
-	while (s2[b] != '\0')
-	{
-		my_array[c] = s2[b];
-		b++;
-		c++;
-	}
+	for (xc = 0; s1[xc]; xc++)
+		cs[cx++] = s1[xc];
 
-	return (my_array);
-	free(my_array);
+	for (xc = 0; s2[xc]; xc++)
+		cs[cx++] = s2[xc];
+
+	return (cs);
 }

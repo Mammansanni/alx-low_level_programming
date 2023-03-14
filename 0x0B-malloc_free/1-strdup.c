@@ -2,32 +2,32 @@
 #include <stdlib.h>
 
 /**
- * _strdup - check the code for Holberton School students.
- * @str: argument for array
- * Return: Always 0.
+ * _strdup - returns pointer to a new space allocated in the memory.
+ * @str: strings.
+ * Return: pointer of an array of characters
+ * betty style doc for function main goes there
  */
+
 char *_strdup(char *str)
 {
-	char *my_array;
-	int i, len;
+	char *result;
+	int x, y = 0;
 
-	my_array = malloc(sizeof(str));
-
-	i = len = 0;
-	while (str[i] != '\0')
-	{
-		len++;
-		i++;
-	}
-
-	if (my_array == NULL)
+	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (str[i] != '\0')
-	{
-		my_array[i] = str[i];
-		i++;
-	}
 
-	return (my_array);
+	for (x = 0; str[x]; x++)
+		y++;
+
+	result = malloc(sizeof(char) * (y + 1));
+
+	if (result == NULL)
+		return (NULL);
+
+	for (x = 0; str[x]; x++)
+		result[x] = str[x];
+
+	result[y] = '\0';
+
+	return (result);
 }
